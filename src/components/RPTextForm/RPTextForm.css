@@ -1,0 +1,31 @@
+.RPTextForm {
+  background-color: #484b52;
+  text-align: center;
+  margin: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.RPTextForm-Area {
+  font-size: calc(10px + 2vmin);
+  color: #61dafb;
+  text-align: center;
+  margin-top:  5vh;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.RPTextForm-Submit {
+  font-size: calc(10px + 2vmin); 
+  text-align: center;
+  position: relative;  
+  min-height: 0.5svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

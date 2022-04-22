@@ -1,4 +1,5 @@
 import React from 'react'
+import './RPTextForm.css'
 class RPTextForm extends React.Component{
 	
 	onSubmit = (e) => {
@@ -12,30 +13,28 @@ class RPTextForm extends React.Component{
 			let regTextIsNotEmpty = /[a-zA-Z]/g;	
 
 			if(regTextIsNotEmpty.test(textReplaced)) 
-				return this.props.successCallback(textReplaced.match(/\S+/g).length + ' words witten.');
+				return this.props.onSuccessCallback(textReplaced.match(/\S+/g).length + ' words witten.');
 			else 
 				throw new SyntaxError('This component need to be filled with valid words.');
 		}
 		catch(error)
 		{
-			return this.props.errorCallback(error.toString());
+			return this.props.onErrorCallback(error.toString());
 		}   
 		
 	};
 
 	render(){
 		return(
-		<div>
+		<div className='RPTextForm'>
 			<form onSubmit = {this.onSubmit}>
-				<textarea 
-					name = "rpTextArea" 
-					placeholder = "Enter Text"
-				/>
-				<br/>
-				<br/>
-				<input type = "submit" value = "Submit"/>
-				<br/>
-				<br/>
+				<div className='RPTextForm-Area'>
+					<textarea 
+						name = "rpTextArea" 
+						placeholder = "Enter Text"
+					/>
+					<input className='RPTextForm-Submit' type = "submit" value = "Submit"/>
+				</div>
 			</form>
 		</div>
 		)
