@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import RPTextForm from './RPTextForm'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+	state = {
+		successMessage: '',
+		errorMessage: ''
+	}		
+
+	handleSuccessCallback = (props) =>{
+		this.setState({
+						successMessage: props,
+						errorMessage: null
+					})
+	}
+
+	handleErrorCallback = (props) =>{
+		this.setState({
+			successMessage: null,
+			errorMessage: props
+		})
+		throw Error(props);
+	}
+
+	render(){
+		const {successMessage, errorMessage} = this.state;
+		return(
+			<div>
+				<RPTextForm 
+					successCallback = {this.handleSuccessCallback}
+					errorCallback = {this.handleErrorCallback}/>
+				<b>{successMessage ? successMessage : errorMessage}</b>
+			</div>
+		)
+	}
 }
-
-export default App;
+export default App
