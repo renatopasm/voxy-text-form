@@ -30,6 +30,7 @@ class RPTextForm extends React.Component{
 			<form onSubmit = {this.onSubmit}>
 				<div className='RPTextForm-Area'>
 					<textarea 
+						className='RPTextForm-TextArea'
 						name = "rpTextArea" 
 						placeholder = "Enter Text"
 					/>
